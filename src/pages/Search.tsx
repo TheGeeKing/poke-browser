@@ -1,9 +1,9 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import PokemonCard from "../components/PokemonCard";
 import pokemon from "../data/pokemon.json";
 import { fetchPokemonDetails } from "../utils";
-import PokemonCard from "../components/PokemonCard";
 
 export default function Search() {
   const { theme, setTheme } = useTheme();
