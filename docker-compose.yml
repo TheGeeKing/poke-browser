@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+    frontend:
+        container_name: poke-browser
+        build:
+            context: ./
+        restart: unless-stopped
+        ports:
+            - "3005:80"
+        image: registry.home.mma.dev/poke-browser:latest
