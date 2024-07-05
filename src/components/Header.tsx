@@ -1,9 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
 
 function Header() {
   const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
   useEffect(() => {
     if (theme === null) {
       window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -23,6 +24,7 @@ function Header() {
             <ul className="flex row-auto justify-center h-full items-center space-x-2 sm:space-x-4 [&_li]:h-full [&_li]:flex [&_a]:dark:text-white [&_a]:h-full [&_a]:flex [&_a]:items-center [&_a]:sm:text-xl">
               <li>
                 <Link
+                  onClick={() => navigate("/")}
                   to="/"
                   draggable={false}
                   className="hover:dark:text-legacyBlurple transition ease-in-out duration-500"
