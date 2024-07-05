@@ -1,4 +1,5 @@
 import { NextUIProvider } from "@nextui-org/react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -6,15 +7,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Header from "./components/Header";
-import Pokemon from "./components/Pokemon";
-import Search from "./components/Search";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
+import Pokemon from "./pages/Pokemon";
+import Search from "./pages/Search";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Header />}>
       <Route index element={<Search />} />
-      <Route path="pokemon" element={<Pokemon />} />
+      <Route path="pokemon/:name" element={<Pokemon />} />
     </Route>
   )
 );

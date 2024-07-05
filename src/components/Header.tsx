@@ -1,6 +1,6 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function Header() {
   const { theme, setTheme } = useTheme();
