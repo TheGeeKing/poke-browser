@@ -2,14 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn {
+    @apply rounded-lg border border-solid border-transparent px-[1.2em] py-[0.6em] text-base font-medium cursor-pointer transition-border font-inherit;
+    /* font-family: inherit;
+    transition: border-color 0.25s; */
+  }
+
+  .dark .btn {
+    @apply bg-[#1a1a1a];
+  }
+
+  .light .btn {
+    @apply bg-[#f9f9f9];
+  }
+}
+
+@layer utilities {
+  .transition-border {
+    transition: border-color 0.25s;
+  }
+
+  .transition-bg {
+    transition: background-color 0.5s;
+  }
+
+  .font-inherit {
+    font-family: inherit;
+  }
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,14 +47,54 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    color: #242424;
+    background-color: rgba(204, 204, 174, 0.87);
+  }
+}
+
+:root.light {
+  color-scheme: light;
+  color: #242424;
+  background-color: rgba(204, 204, 174, 0.87);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    color: #ece7e7;
+    background-color: #242424;
+  }
+}
+
+:root.dark {
+  color-scheme: dark;
+  color: #ece7e7;
+  background-color: #242424;
+}
+
+/* change background color of button if html has class dark */
+/* .dark button {
+  background-color: #1a1a1a;
+}
+
+.light button {
+  background-color: #f9f9f9;
+} */
+
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
+.light a {
+  color: #646cff;
 }
+
+/* a:hover {
+  color: #535bf2;
+} */
 
 body {
   margin: 0;
@@ -39,7 +109,12 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+h2 {
+  font-size: 2.4em;
+  line-height: 1.25;
+}
+
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -49,7 +124,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
+} */
+
 button:hover {
   border-color: #646cff;
 }
@@ -63,10 +139,31 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
+  .dark a:hover {
     color: #747bff;
   }
+
+  .light a:hover {
+    color: #ffffff;
+  }
+
   button {
     background-color: #f9f9f9;
   }
+}
+.dark a:hover {
+  color: #747bff;
+}
+
+.light a:hover {
+  color: #ffffff;
+}
+
+.asterisk_input::after {
+  content: "*";
+  color: #e32;
+  position: absolute;
+  margin: -60px 0px 0px 82px;
+  font-size: x-large;
+  /* padding: 0 5px 0 0; */
 }
