@@ -24,7 +24,7 @@ function Header() {
             <ul className="flex row-auto justify-center h-full items-center space-x-2 sm:space-x-4 [&_li]:h-full [&_li]:flex [&_a]:dark:text-white [&_a]:h-full [&_a]:flex [&_a]:items-center [&_a]:sm:text-xl">
               <li>
                 <Link
-                  onClick={() => navigate("/")}
+                  onClick={() => (window.location.href = "/")}
                   to="/"
                   draggable={false}
                   className="hover:dark:text-legacyBlurple transition ease-in-out duration-500"
